@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { doc, getDoc } from "firebase/firestore"
 import { db } from "../firebase/config"
+import { useCart } from "../context/CartContext"
+import { useAuth } from "../context/AuthContext"
 
 function ProductDetail() {
   const { id } = useParams()
   const [product, setProduct] = useState(null)
   const [loading, setLoading] = useState(true)
+  const { addToCart } = useCart()
+  const { user } = useAuth()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -20,6 +25,15 @@ function ProductDetail() {
     fetchProduct()
   }, [id])
 
+  const handleAddToCart = () => {
+    if (!user) {
+      navigate("/login")
+      return
+    }
+    addToCart(product)
+    navigate("/cart")
+  }
+
   if (loading) return <div className="text-center py-20 text-amber-800">Loading...</div>
   if (!product) return <div className="text-center py-20 text-amber-800">Product not found!</div>
 
@@ -32,7 +46,10 @@ function ProductDetail() {
           <p className="text-amber-600 mt-2">{product.category}</p>
           <p className="text-gray-600 mt-4">{product.description}</p>
           <p className="text-2xl font-bold text-orange-700 mt-4">KSh {product.price}</p>
-          <button className="bg-orange-700 text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-800 mt-6">
+          <button
+            onClick={handleAddToCart}
+            className="bg-orange-700 text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-800 mt-6"
+          >
             Add to Cart
           </button>
         </div>
