@@ -1,7 +1,47 @@
 
+import { useEffect, useState } from "react"
+import { collection, getDocs } from "firebase/firestore"
+import { db } from "../firebase/config"
+import { Link } from "react-router-dom"
 
 function Shop() {
-    return <div className="p-8 text-2xl">Shop Page</div>
+  const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const querySnapshot = await getDocs(collection(db, "products"))
+      const items = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }))
+      setProducts(items)
+      setLoading(false)
+    }
+    fetchProducts()
+  }, [])
+
+  if (loading) return <div className="text-center py-20 text-amber-800">Loading products...</div>
+
+  return (
+    <div className="bg-amber-50 min-h-screen py-12 px-6">
+      <h1 className="text-4xl font-bold text-amber-900 text-center mb-10">Our Shop 🛍️</h1>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {products.map(product => (
+          <Link to={`/product/${product.id}`} key={product.id}>
+            <div className="bg-white rounded-2xl shadow hover:shadow-lg overflow-hidden">
+              <img src={product.image} alt={product.name} className="w-full h-48 object-cover"/>
+              <div className="p-4">
+                <h2 className="text-xl font-bold text-amber-900">{product.name}</h2>
+                <p className="text-amber-700 mt-1">{product.category}</p>
+                <p className="text-orange-700 font-semibold mt-2">KSh {product.price}</p>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
 }
 
 export default Shop
