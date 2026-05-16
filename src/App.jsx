@@ -9,7 +9,7 @@ import Login from './pages/Login'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/cozy-loops-co">
     <Navbar />
     <Routes>
       <Route path="/" element={<Home />} />
