@@ -7,7 +7,7 @@ function Home() {
       <div
         className="relative flex flex-col items-center justify-center text-center py-32 px-6"
         style={{
-          backgroundImage: "url('./images/hero.jpg')",
+          backgroundImage: "url('https://adisacodes.github.io/cozy-loops-co/images/hero.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -32,21 +32,21 @@ function Home() {
         <h2 className="text-3xl font-bold text-amber-900 mb-10">Our Collections</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           <div className="rounded-2xl overflow-hidden shadow hover:shadow-lg">
-            <img src="./images/totebag2.webp" alt="Bags" className="w-full h-48 object-cover"/>
+            <img src="https://adisacodes.github.io/cozy-loops-co/images/totebag2.webp" alt="Bags" className="w-full h-48 object-cover"/>
             <div className="bg-orange-100 p-4">
               <h3 className="text-xl font-bold text-amber-900">Bags</h3>
               <p className="text-amber-700 mt-1">Stylish handcrafted bags</p>
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow hover:shadow-lg">
-            <img src="./images/scrunchies.webp" alt="Accessories" className="w-full h-48 object-cover"/>
+            <img src="https://adisacodes.github.io/cozy-loops-co/images/scrunchies.webp" alt="Accessories" className="w-full h-48 object-cover"/>
             <div className="bg-orange-100 p-4">
               <h3 className="text-xl font-bold text-amber-900">Accessories</h3>
               <p className="text-amber-700 mt-1">Scrunchies, keychains & more</p>
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow hover:shadow-lg">
-            <img src="./images/keychain.jpg" alt="Keychains" className="w-full h-48 object-cover"/>
+            <img src="https://adisacodes.github.io/cozy-loops-co/images/keychain.jpg" alt="Keychains" className="w-full h-48 object-cover"/>
             <div className="bg-orange-100 p-4">
               <h3 className="text-xl font-bold text-amber-900">Keychains</h3>
               <p className="text-amber-700 mt-1">Cute crochet keychains</p>
