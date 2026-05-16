@@ -4,7 +4,6 @@ import { Link } from "react-router-dom"
 function Home() {
   return (
     <div className="bg-amber-50 min-h-screen">
-      {/* Hero Section */}
       <div
         className="relative flex flex-col items-center justify-center text-center py-32 px-6"
         style={{
@@ -15,8 +14,8 @@ function Home() {
       >
         <div className="bg-black/40 absolute inset-0"></div>
         <div className="relative z-10">
-          <h1 className="text-6xl font-bold text-amber-50 mb-4">Cozy Loops Co 🧶</h1>
-          <p className="text-xl text-amber-100 mb-8 max-w-xl">
+          <h1 className="text-4xl md:text-6xl font-bold text-amber-50 mb-4">Cozy Loops Co 🧶</h1>
+          <p className="text-base md:text-xl text-amber-100 mb-8 max-w-xl">
             Handmade with love, one loop at a time.
             Turning yarn into cozy little treasures.
           </p>
@@ -29,7 +28,6 @@ function Home() {
         </div>
       </div>
 
-      {/* Collections Section */}
       <div className="py-16 px-6 text-center">
         <h2 className="text-3xl font-bold text-amber-900 mb-10">Our Collections</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
