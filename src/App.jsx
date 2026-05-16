@@ -9,7 +9,7 @@ import Login from './pages/Login'
 
 function App() {
   return (
-    <BrowserRouter basename="/cozy-loops-co">
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
     <Navbar />
     <Routes>
       <Route path="/" element={<Home />} />
