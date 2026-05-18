@@ -32,6 +32,9 @@ function Navbar() {
             <>
               <Link to="/cart" className="hover:text-amber-200">Cart</Link>
               <Link to="/dashboard" className="hover:text-amber-200">Dashboard</Link>
+              {user.email === "marianavugwe@gmail.com" && (
+                <Link to="/admin" className="hover:text-amber-200">Admin</Link>
+              )}
               <button onClick={handleLogout} className="bg-orange-700 px-4 py-2 rounded-full hover:bg-orange-800">Logout</button>
             </>
           ) : (
@@ -47,6 +50,9 @@ function Navbar() {
             <>
               <Link to="/cart" onClick={() => setMenuOpen(false)}>Cart</Link>
               <Link to="/dashboard" onClick={() => setMenuOpen(false)}>Dashboard</Link>
+              {user.email === "marianavugwe@gmail.com" && (
+                <Link to="/admin" onClick={() => setMenuOpen(false)}>Admin</Link>
+              )}
               <button onClick={handleLogout} className="bg-orange-700 px-4 py-2 rounded-full text-left">Logout</button>
             </>
           ) : (
