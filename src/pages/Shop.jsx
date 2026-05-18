@@ -54,7 +54,14 @@ function Shop() {
         {filtered.map(product => (
           <Link to={`/product/${product.id}`} key={product.id}>
             <div className="bg-white rounded-2xl shadow hover:shadow-lg overflow-hidden">
-              <img src={product.image} alt={product.name} className="w-full h-48 object-cover"/>
+              <div className="relative">
+                <img src={product.image} alt={product.name} className="w-full h-48 object-cover"/>
+                <div className="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition flex items-center justify-center">
+                <span className="bg-orange-700 text-white px-4 py-2 rounded-full font-semibold">
+                    View Product
+                    </span>
+              </div>
+                </div>
               <div className="p-4">
                 <h2 className="text-xl font-bold text-amber-900">{product.name}</h2>
                 <p className="text-amber-700 mt-1">{product.category}</p>
