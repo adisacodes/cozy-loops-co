@@ -39,7 +39,7 @@ function Dashboard() {
               <div className="flex justify-between items-center mb-4">
                 <p className="text-amber-700 text-sm">Order ID: {order.id.slice(0, 8)}...</p>
                 <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-semibold">
-                  {order.status}
+                  {order.placed}
                 </span>
               </div>
               {order.items.map((item, index) => (
